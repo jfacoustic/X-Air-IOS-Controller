@@ -1,0 +1,6 @@
+framework module Pods_X_Air_ControlsUITests {
+  umbrella header "Pods-X-Air ControlsUITests-umbrella.h"
+
+  export *
+  module * { export * }
+}

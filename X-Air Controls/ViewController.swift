@@ -17,14 +17,14 @@ class OSCHandler: OSCServerDelegate {
 
 class ViewController: UIViewController {
     //MARK: Properties
-    var server = OSCServer(address: "", port: 8080)
-    var client = OSCClient(address: "localhost", port: 8080)
+    var server = OSCServer(address: "", port: 10024)
+    var client = OSCClient(address: "192.168.1.1", port: 10024)
     
     @IBOutlet weak var Ch1Vol: UISlider!
-    
     @IBAction func changeCh1Vol(_ sender: Any) {
-        
-        var message = OSCMessage(
+        let xinfo = OSCMessage(OSCAddressPattern("/xinfo"))
+        client.send(xinfo)
+        let message = OSCMessage(
             OSCAddressPattern("/ch/01/mix"),
             1,
             Ch1Vol.value,
@@ -32,12 +32,56 @@ class ViewController: UIViewController {
             0.5
         )
         client.send(message)
-        print(Ch1Vol.value)
+        //print(Ch1Vol.value)
     }
+    
     @IBOutlet weak var Ch2Vol: UISlider!
     @IBAction func changeCh2Vol(_ sender: Any) {
-        
+        let message = OSCMessage(
+            OSCAddressPattern("/ch/02/mix"),
+            1,
+            Ch2Vol.value,
+            1,
+            0.5
+        )
+        client.send(message)
     }
+    
+    @IBOutlet weak var Ch3Vol: UISlider!
+    @IBAction func changeCh3Vol(_ sender: Any) {
+        let message = OSCMessage(
+            OSCAddressPattern("/ch/03/mix"),
+            1,
+            Ch3Vol.value,
+            1,
+            0.5
+        )
+        client.send(message)
+    }
+    @IBOutlet weak var Ch4Vol: UISlider!
+    @IBAction func changeCh4Vol(_ sender: Any) {
+        let message = OSCMessage(
+            OSCAddressPattern("/ch/04/mix"),
+            1,
+            Ch4Vol.value,
+            1,
+            0.5
+        )
+        client.send(message)
+    }
+    
+    @IBOutlet weak var MasterVol: UISlider!
+    @IBAction func changeMasterVol(_ sender: Any) {
+        let message = OSCMessage(
+            OSCAddressPattern("/lr/mix"),
+            1,
+            MasterVol.value,
+            1,
+            0.5
+        )
+        client.send(message)
+    }
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()

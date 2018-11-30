@@ -14,8 +14,7 @@ class ViewController: UIViewController {
     //MARK: Properties
     @IBOutlet weak var Ch1Vol: UISlider!
     @IBAction func changeCh1Vol(_ sender: Any) {
-        let xinfo = OSCMessage(OSCAddressPattern("/xinfo"))
-        client.send(xinfo)
+        channel1Volume = Ch1Vol.value
         let message = OSCMessage(
             OSCAddressPattern("/ch/01/mix"),
             1,

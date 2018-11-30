@@ -12,6 +12,18 @@ import SwiftOSC
 
 class Channel1ViewController: UIViewController {
     //MARK: Properties
+    @IBOutlet weak var volume: UISlider!
+    @IBAction func changeVolume(_ sender: Any) {
+        channel1Volume = volume.value
+        let message = OSCMessage(
+            OSCAddressPattern("/ch/01/mix"),
+            1,
+            volume.value,
+            1,
+            0.5
+        )
+        client.send(message)
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -19,7 +31,7 @@ class Channel1ViewController: UIViewController {
         
     }
     override func viewDidAppear(_ animated: Bool) {
-        
+        volume.value = channel1Volume
     }
 }
 

@@ -18,7 +18,7 @@ var muteChannel2 = false
 var muteChannel3 = false
 var muteChannel4 = false
 var muteMaster   = false
-
+var channel1Volume = Float(0)
 // This is really just for the future.  Have to edit some low level code
 // in the SwiftOSC library to get it to work like I want it to.
 

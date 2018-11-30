@@ -87,10 +87,16 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zpn-uP-hkZ">
                                 <rect key="frame" x="271" y="359" width="35" height="30"/>
                                 <state key="normal" title="Mute"/>
+                                <connections>
+                                    <action selector="MuteCh3:" destination="BYZ-38-t0r" eventType="touchUpInside" id="xm3-yO-91A"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pMV-Ik-9aH">
                                 <rect key="frame" x="271" y="434" width="35" height="30"/>
                                 <state key="normal" title="Mute"/>
+                                <connections>
+                                    <action selector="MuteCh4:" destination="BYZ-38-t0r" eventType="touchUpInside" id="pJA-XF-ODR"/>
+                                </connections>
                             </button>
                             <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="i1v-dS-9wv">
                                 <rect key="frame" x="132" y="472" width="181" height="30"/>
@@ -111,6 +117,9 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KIv-6B-hwc">
                                 <rect key="frame" x="271" y="509" width="35" height="30"/>
                                 <state key="normal" title="Mute"/>
+                                <connections>
+                                    <action selector="MasterMute:" destination="BYZ-38-t0r" eventType="touchUpInside" id="mt3-UA-MRN"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2LY-0a-4uA">
                                 <rect key="frame" x="46" y="182" width="67" height="30"/>
@@ -195,9 +204,12 @@
                         <outlet property="Ch2Vol" destination="476-SV-w7q" id="Ih9-3s-vKg"/>
                         <outlet property="Ch3Vol" destination="3a6-vb-eEh" id="HO3-jA-DpC"/>
                         <outlet property="Ch4Vol" destination="jsS-mb-PhS" id="bOq-JW-bTo"/>
+                        <outlet property="MasterMuteButton" destination="KIv-6B-hwc" id="vFa-bV-aQr"/>
                         <outlet property="MasterVol" destination="i1v-dS-9wv" id="JgH-4k-65Z"/>
                         <outlet property="MuteCh1Button" destination="CVA-iL-bLK" id="shN-9m-wI6"/>
                         <outlet property="MuteCh2Button" destination="UHv-Ed-Hbm" id="1Sr-QT-jxu"/>
+                        <outlet property="MuteCh3Button" destination="zpn-uP-hkZ" id="kHz-rz-VPT"/>
+                        <outlet property="MuteCh4Button" destination="pMV-Ik-9aH" id="a1u-kA-lQR"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

@@ -9,7 +9,7 @@
 import UIKit
 import SwiftOSC
 
-let defaultBlue = UIColor.init(red: 0.0, green: 0.478, blue: 1.0, alpha: 0.0)
+let defaultBlue = UIColor.init(red: 0.0, green: 0.478, blue: 1.0, alpha: 1.0)
 
 class ViewController: UIViewController {
     //MARK: Properties
@@ -70,7 +70,7 @@ class ViewController: UIViewController {
             MuteCh2Button.setTitleColor(defaultBlue, for: UIControl.State.normal)
         }
         let message = OSCMessage(
-            OSCAddressPattern("/ch/01/mix"),
+            OSCAddressPattern("/ch/02/mix"),
             muteChannel2 ? 0 : 1,
             Ch2Vol.value,
             1,
@@ -91,6 +91,27 @@ class ViewController: UIViewController {
         )
         client.send(message)
     }
+    
+    @IBOutlet weak var MuteCh3Button: UIButton!
+    @IBAction func MuteCh3(_ sender: Any) {
+        muteChannel3 = !(muteChannel3)
+        if muteChannel3 {
+            MuteCh3Button.setTitleColor(UIColor.red, for: UIControl.State.normal)
+        }
+        else {
+            MuteCh3Button.setTitleColor(defaultBlue, for: UIControl.State.normal)
+        }
+        let message = OSCMessage(
+            OSCAddressPattern("/ch/03/mix"),
+            muteChannel3 ? 0 : 1,
+            Ch3Vol.value,
+            1,
+            0.5
+        )
+        client.send(message)
+    }
+    
+    
     @IBOutlet weak var Ch4Vol: UISlider!
     @IBAction func changeCh4Vol(_ sender: Any) {
         channel4Volume = Ch4Vol.value
@@ -104,6 +125,27 @@ class ViewController: UIViewController {
         client.send(message)
     }
     
+    @IBOutlet weak var MuteCh4Button: UIButton!
+    @IBAction func MuteCh4(_ sender: Any) {
+        muteChannel4 = !(muteChannel4)
+        if muteChannel4 {
+            MuteCh4Button.setTitleColor(UIColor.red, for: UIControl.State.normal)
+        }
+        else {
+            MuteCh4Button.setTitleColor(defaultBlue, for: UIControl.State.normal)
+        }
+        let message = OSCMessage(
+            OSCAddressPattern("/ch/01/mix"),
+            muteChannel4 ? 0 : 1,
+            Ch4Vol.value,
+            1,
+            0.5
+        )
+        client.send(message)
+
+    }
+    
+    
     @IBOutlet weak var MasterVol: UISlider!
     @IBAction func changeMasterVol(_ sender: Any) {
         masterVolume = MasterVol.value 
@@ -116,8 +158,26 @@ class ViewController: UIViewController {
         )
         client.send(message)
     }
+    @IBOutlet weak var MasterMuteButton: UIButton!
     
-    
+    @IBAction func MasterMute(_ sender: Any) {
+        muteMaster = !(muteMaster)
+        if muteMaster {
+            MasterMuteButton.setTitleColor(UIColor.red, for: UIControl.State.normal)
+        }
+        else {
+            MasterMuteButton.setTitleColor(defaultBlue, for: UIControl.State.normal)
+        }
+        let message = OSCMessage(
+            OSCAddressPattern("/lr/mix"),
+            muteMaster ? 0 : 1,
+            MasterVol.value,
+            1,
+            0.5
+        )
+        client.send(message)
+        print(muteMaster)
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.

@@ -9,17 +9,9 @@
 import UIKit
 import SwiftOSC
 
-class OSCHandler: OSCServerDelegate {
-    func didReceive(_ message: OSCMessage) {
-        print(message)
-    }
-}
 
 class ViewController: UIViewController {
     //MARK: Properties
-    var server = OSCServer(address: "", port: 10024)
-    var client = OSCClient(address: "192.168.1.1", port: 10024)
-    
     @IBOutlet weak var Ch1Vol: UISlider!
     @IBAction func changeCh1Vol(_ sender: Any) {
         let xinfo = OSCMessage(OSCAddressPattern("/xinfo"))
@@ -86,8 +78,6 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        server.delegate = OSCHandler()
-        server.start()
         
     }
     override func viewDidAppear(_ animated: Bool) {

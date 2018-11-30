@@ -17,15 +17,31 @@ class Channel1ViewController: UIViewController {
         channel1Volume = volume.value
         let message = OSCMessage(
             OSCAddressPattern("/ch/01/mix"),
-            !(muteChannel1),
+            muteChannel1 ? 0 : 1,
             volume.value,
             1,
             0.5
         )
         client.send(message)
     }
+    
+    @IBOutlet weak var muteButton: UIButton!
     @IBAction func mute(_ sender: Any) {
         muteChannel1 = !(muteChannel1)
+        if muteChannel1 {
+            muteButton.setTitleColor(UIColor.red, for: UIControl.State.normal)
+        }
+        else {
+            muteButton.setTitleColor(defaultBlue, for: UIControl.State.normal)
+        }
+        let message = OSCMessage(
+            OSCAddressPattern("/ch/01/mix"),
+            muteChannel1 ? 0 : 1,
+            volume.value,
+            1,
+            0.5
+        )
+        client.send(message)
     }
     
     override func viewDidLoad() {

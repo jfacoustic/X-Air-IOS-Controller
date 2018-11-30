@@ -7,3 +7,52 @@
 //
 
 import Foundation
+import UIKit
+import SwiftOSC
+
+class Channel3ViewController: UIViewController {
+    //MARK: Properties
+    @IBOutlet weak var volume: UISlider!
+    @IBAction func changeVolume(_ sender: Any) {
+        channel3Volume = volume.value
+        let message = OSCMessage(
+            OSCAddressPattern("/ch/03/mix"),
+            muteChannel3 ? 0 : 1,
+            volume.value,
+            1,
+            0.5
+        )
+        client.send(message)
+    }
+    
+    @IBOutlet weak var muteButton: UIButton!
+    @IBAction func mute(_ sender: Any) {
+        muteChannel3 = !(muteChannel3)
+        if muteChannel3 {
+            muteButton.setTitleColor(UIColor.red, for: UIControl.State.normal)
+        }
+        else {
+            muteButton.setTitleColor(defaultBlue, for: UIControl.State.normal)
+        }
+        let message = OSCMessage(
+            OSCAddressPattern("/ch/03/mix"),
+            muteChannel3 ? 0 : 1,
+            volume.value,
+            1,
+            0.5
+        )
+        client.send(message)
+    }
+    
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        // Do any additional setup after loading the view, typically from a nib.
+        
+    }
+    override func viewDidAppear(_ animated: Bool) {
+        volume.value = channel3Volume
+    }
+}
+
+

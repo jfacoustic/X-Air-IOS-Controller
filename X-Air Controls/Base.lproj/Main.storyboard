@@ -329,6 +329,7 @@
                         <viewLayoutGuide key="safeArea" id="Lo6-4K-l21"/>
                     </view>
                     <connections>
+                        <outlet property="muteButton" destination="ORc-oI-r2I" id="Z5Q-tx-Tby"/>
                         <outlet property="volume" destination="tW9-aj-m9g" id="INy-Vp-1I1"/>
                     </connections>
                 </viewController>
@@ -339,7 +340,7 @@
         <!--Channel2 View Controller-->
         <scene sceneID="PY6-tk-P4O">
             <objects>
-                <viewController id="ooj-nV-O0c" customClass="Channel2ViewController" sceneMemberID="viewController">
+                <viewController id="ooj-nV-O0c" customClass="Channel2ViewController" customModule="X_Air_Controls" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="QYu-1O-fk0" customClass="Channel">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -356,12 +357,15 @@
                             <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="QKu-kT-zzP">
                                 <rect key="frame" x="120" y="143" width="181" height="30"/>
                                 <connections>
-                                    <action selector="changeCh1Vol:" destination="BYZ-38-t0r" eventType="valueChanged" id="6B1-5d-tjl"/>
+                                    <action selector="changeVolume:" destination="ooj-nV-O0c" eventType="valueChanged" id="9BZ-E0-uKa"/>
                                 </connections>
                             </slider>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9HQ-qD-4p8">
                                 <rect key="frame" x="264" y="180" width="35" height="30"/>
                                 <state key="normal" title="Mute"/>
+                                <connections>
+                                    <action selector="mute:" destination="ooj-nV-O0c" eventType="touchUpInside" id="Ir5-Mc-Ipg"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Volume" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2bO-k9-2hP">
                                 <rect key="frame" x="52" y="147" width="58" height="21"/>
@@ -369,8 +373,8 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Channel 1 Settings" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8tX-vp-rdL">
-                                <rect key="frame" x="116" y="114" width="143" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Channel 2 Settings" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8tX-vp-rdL">
+                                <rect key="frame" x="115" y="114" width="145" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="21" id="s0R-iD-TSC"/>
                                 </constraints>
@@ -380,9 +384,6 @@
                             </label>
                             <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="qPi-QM-kPZ">
                                 <rect key="frame" x="120" y="233" width="181" height="30"/>
-                                <connections>
-                                    <action selector="changeCh1Vol:" destination="BYZ-38-t0r" eventType="valueChanged" id="W5b-bu-4fF"/>
-                                </connections>
                             </slider>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Reverb" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jgp-ba-4Sk">
                                 <rect key="frame" x="52" y="237" width="54" height="21"/>
@@ -392,9 +393,6 @@
                             </label>
                             <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="uif-iT-CFp">
                                 <rect key="frame" x="120" y="308" width="181" height="30"/>
-                                <connections>
-                                    <action selector="changeCh1Vol:" destination="BYZ-38-t0r" eventType="valueChanged" id="xXP-jG-US7"/>
-                                </connections>
                             </slider>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Delay" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ddo-xK-fMR">
                                 <rect key="frame" x="52" y="312" width="43" height="21"/>
@@ -444,6 +442,10 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="s9l-FZ-OIY"/>
                     </view>
+                    <connections>
+                        <outlet property="muteButton" destination="9HQ-qD-4p8" id="G9W-MV-6V6"/>
+                        <outlet property="volume" destination="QKu-kT-zzP" id="86w-15-4mj"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sGh-cn-blq" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -452,7 +454,7 @@
         <!--Channel3 View Controller-->
         <scene sceneID="IzV-pS-rLD">
             <objects>
-                <viewController id="7c4-gr-gVX" customClass="Channel3ViewController" sceneMemberID="viewController">
+                <viewController id="7c4-gr-gVX" customClass="Channel3ViewController" customModule="X_Air_Controls" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="2HD-59-HPY">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -469,12 +471,15 @@
                             <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="ozP-r0-b2t">
                                 <rect key="frame" x="120" y="143" width="181" height="30"/>
                                 <connections>
-                                    <action selector="changeCh1Vol:" destination="BYZ-38-t0r" eventType="valueChanged" id="fnb-JX-xqw"/>
+                                    <action selector="changeVolume:" destination="7c4-gr-gVX" eventType="valueChanged" id="43U-H4-7kb"/>
                                 </connections>
                             </slider>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QfC-78-TQb">
                                 <rect key="frame" x="264" y="180" width="35" height="30"/>
                                 <state key="normal" title="Mute"/>
+                                <connections>
+                                    <action selector="mute:" destination="7c4-gr-gVX" eventType="touchUpInside" id="Rn2-fo-A3G"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Volume" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qaZ-Kn-NnQ">
                                 <rect key="frame" x="52" y="147" width="58" height="21"/>
@@ -482,8 +487,8 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Channel 1 Settings" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tta-jK-59Y">
-                                <rect key="frame" x="116" y="114" width="143" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Channel 3 Settings" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tta-jK-59Y">
+                                <rect key="frame" x="115" y="114" width="145" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="21" id="vFZ-5M-uon"/>
                                 </constraints>
@@ -493,9 +498,6 @@
                             </label>
                             <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="0f4-bC-a73">
                                 <rect key="frame" x="120" y="233" width="181" height="30"/>
-                                <connections>
-                                    <action selector="changeCh1Vol:" destination="BYZ-38-t0r" eventType="valueChanged" id="EqB-u5-F8N"/>
-                                </connections>
                             </slider>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Reverb" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gMr-C3-WmV">
                                 <rect key="frame" x="52" y="237" width="54" height="21"/>
@@ -505,9 +507,6 @@
                             </label>
                             <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="pZE-Xy-zB4">
                                 <rect key="frame" x="120" y="308" width="181" height="30"/>
-                                <connections>
-                                    <action selector="changeCh1Vol:" destination="BYZ-38-t0r" eventType="valueChanged" id="21L-HS-CGu"/>
-                                </connections>
                             </slider>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Delay" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vzC-Q7-KOz">
                                 <rect key="frame" x="52" y="312" width="43" height="21"/>
@@ -557,6 +556,10 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="JZ9-8B-xMs"/>
                     </view>
+                    <connections>
+                        <outlet property="muteButton" destination="QfC-78-TQb" id="SDG-pS-eUo"/>
+                        <outlet property="volume" destination="ozP-r0-b2t" id="qwZ-Vb-Z84"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dHS-mz-Jdj" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -565,7 +568,7 @@
         <!--Channel4 View Controller-->
         <scene sceneID="3aK-9x-C39">
             <objects>
-                <viewController id="Gvu-CY-diX" customClass="Channel4ViewController" sceneMemberID="viewController">
+                <viewController id="Gvu-CY-diX" customClass="Channel4ViewController" customModule="X_Air_Controls" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="eJn-d8-mdm" customClass="Channel">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -582,12 +585,15 @@
                             <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="zMq-Vr-HtT">
                                 <rect key="frame" x="120" y="143" width="181" height="30"/>
                                 <connections>
-                                    <action selector="changeCh1Vol:" destination="BYZ-38-t0r" eventType="valueChanged" id="fD7-CT-yEw"/>
+                                    <action selector="changeVolume:" destination="Gvu-CY-diX" eventType="valueChanged" id="7be-6B-Y2i"/>
                                 </connections>
                             </slider>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="a96-YQ-bed">
                                 <rect key="frame" x="264" y="180" width="35" height="30"/>
                                 <state key="normal" title="Mute"/>
+                                <connections>
+                                    <action selector="mute:" destination="Gvu-CY-diX" eventType="touchUpInside" id="1X1-jD-QAr"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Volume" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Q8B-l1-mST">
                                 <rect key="frame" x="52" y="147" width="58" height="21"/>
@@ -595,8 +601,8 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Channel 1 Settings" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AnF-9z-7RB">
-                                <rect key="frame" x="116" y="114" width="143" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Channel 4 Settings" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AnF-9z-7RB">
+                                <rect key="frame" x="114.5" y="114" width="146" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="21" id="CaW-Wf-g3M"/>
                                 </constraints>
@@ -618,9 +624,6 @@
                             </label>
                             <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="Gzr-6h-H0X">
                                 <rect key="frame" x="120" y="308" width="181" height="30"/>
-                                <connections>
-                                    <action selector="changeCh1Vol:" destination="BYZ-38-t0r" eventType="valueChanged" id="78d-cQ-Pob"/>
-                                </connections>
                             </slider>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Delay" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hJV-z7-5Pd">
                                 <rect key="frame" x="52" y="312" width="43" height="21"/>
@@ -670,6 +673,10 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="AwD-TW-WUw"/>
                     </view>
+                    <connections>
+                        <outlet property="muteButton" destination="a96-YQ-bed" id="glO-Ta-jpK"/>
+                        <outlet property="volume" destination="zMq-Vr-HtT" id="MyS-oZ-ejh"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="duO-xq-UxR" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -677,6 +684,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="Xz3-HQ-cz1"/>
+        <segue reference="PiH-gr-Y0f"/>
     </inferredMetricsTieBreakers>
 </document>

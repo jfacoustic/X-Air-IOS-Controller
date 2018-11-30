@@ -15,6 +15,12 @@
 		050A6CF421962DFB002F4E9A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 050A6CF221962DFB002F4E9A /* LaunchScreen.storyboard */; };
 		050A6CFF21962DFB002F4E9A /* X_Air_ControlsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 050A6CFE21962DFB002F4E9A /* X_Air_ControlsTests.swift */; };
 		050A6D0A21962DFB002F4E9A /* X_Air_ControlsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 050A6D0921962DFB002F4E9A /* X_Air_ControlsUITests.swift */; };
+		05318A4021B0CB770023F148 /* OSCInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05318A3F21B0CB770023F148 /* OSCInterface.swift */; };
+		05318A4221B0D0C90023F148 /* Channel1ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05318A4121B0D0C90023F148 /* Channel1ViewController.swift */; };
+		05318A4421B0D0EF0023F148 /* Channel2ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05318A4321B0D0EF0023F148 /* Channel2ViewController.swift */; };
+		05318A4621B0D1090023F148 /* Channel3ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05318A4521B0D1090023F148 /* Channel3ViewController.swift */; };
+		05318A4821B0D11C0023F148 /* Channel4ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05318A4721B0D11C0023F148 /* Channel4ViewController.swift */; };
+		05318A4A21B0D12F0023F148 /* MasterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05318A4921B0D12F0023F148 /* MasterViewController.swift */; };
 		0C978C085E877A7569C06891 /* Pods_X_Air_ControlsUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E2A139DB05DE01C6B1A8CD22 /* Pods_X_Air_ControlsUITests.framework */; };
 		4280FC435F6D997213998EBE /* Pods_X_Air_ControlsTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 190BCA461CF5EC7C5A882F8C /* Pods_X_Air_ControlsTests.framework */; };
 		63F4C97ABD96176BD57C2A67 /* Pods_X_Air_Controls.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 85714CEFBE98C207361F2C7F /* Pods_X_Air_Controls.framework */; };
@@ -52,6 +58,12 @@
 		050A6D0521962DFB002F4E9A /* X-Air ControlsUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "X-Air ControlsUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		050A6D0921962DFB002F4E9A /* X_Air_ControlsUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = X_Air_ControlsUITests.swift; sourceTree = "<group>"; };
 		050A6D0B21962DFB002F4E9A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		05318A3F21B0CB770023F148 /* OSCInterface.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OSCInterface.swift; sourceTree = "<group>"; };
+		05318A4121B0D0C90023F148 /* Channel1ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Channel1ViewController.swift; sourceTree = "<group>"; };
+		05318A4321B0D0EF0023F148 /* Channel2ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Channel2ViewController.swift; sourceTree = "<group>"; };
+		05318A4521B0D1090023F148 /* Channel3ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Channel3ViewController.swift; sourceTree = "<group>"; };
+		05318A4721B0D11C0023F148 /* Channel4ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Channel4ViewController.swift; sourceTree = "<group>"; };
+		05318A4921B0D12F0023F148 /* MasterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MasterViewController.swift; sourceTree = "<group>"; };
 		05C6F30E219637D70077521C /* MyPlayground.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = MyPlayground.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		190BCA461CF5EC7C5A882F8C /* Pods_X_Air_ControlsTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_X_Air_ControlsTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		2D847C8FC99935FF5DAA788B /* Pods-X-Air ControlsUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-X-Air ControlsUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-X-Air ControlsUITests/Pods-X-Air ControlsUITests.release.xcconfig"; sourceTree = "<group>"; };
@@ -125,6 +137,12 @@
 				050A6CF221962DFB002F4E9A /* LaunchScreen.storyboard */,
 				050A6CF521962DFB002F4E9A /* Info.plist */,
 				050A6CED21962DFA002F4E9A /* X_Air_Controls.xcdatamodeld */,
+				05318A3F21B0CB770023F148 /* OSCInterface.swift */,
+				05318A4121B0D0C90023F148 /* Channel1ViewController.swift */,
+				05318A4321B0D0EF0023F148 /* Channel2ViewController.swift */,
+				05318A4521B0D1090023F148 /* Channel3ViewController.swift */,
+				05318A4721B0D11C0023F148 /* Channel4ViewController.swift */,
+				05318A4921B0D12F0023F148 /* MasterViewController.swift */,
 			);
 			path = "X-Air Controls";
 			sourceTree = "<group>";
@@ -396,9 +414,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				05318A4221B0D0C90023F148 /* Channel1ViewController.swift in Sources */,
 				050A6CEF21962DFA002F4E9A /* X_Air_Controls.xcdatamodeld in Sources */,
 				050A6CE921962DFA002F4E9A /* ViewController.swift in Sources */,
+				05318A4821B0D11C0023F148 /* Channel4ViewController.swift in Sources */,
+				05318A4421B0D0EF0023F148 /* Channel2ViewController.swift in Sources */,
+				05318A4A21B0D12F0023F148 /* MasterViewController.swift in Sources */,
 				050A6CE721962DFA002F4E9A /* AppDelegate.swift in Sources */,
+				05318A4621B0D1090023F148 /* Channel3ViewController.swift in Sources */,
+				05318A4021B0CB770023F148 /* OSCInterface.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
